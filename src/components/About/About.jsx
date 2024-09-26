@@ -169,7 +169,7 @@ const About = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-[#EAE9E8] ">
-              <div className="bg-blue-950 flex justify-center flex-col items-center p-2">
+              <div className="bg-black flex justify-center flex-col items-center p-2">
                 <div className="w-1/4 flex justify-center items-center p-6 bg-yellow-500 border-white border-4 rounded-full relative top-[-50px]">
                   <i className="fa-solid fa-wand-magic-sparkles text-xl"></i>
                 </div>
@@ -187,7 +187,7 @@ const About = () => {
               </div>
             </div>
             <div className="bg-[#EAE9E8] mt-16 md:mt-0">
-              <div className="bg-blue-950 flex justify-center flex-col items-center p-2">
+              <div className="bg-black flex justify-center flex-col items-center p-2">
                 <div className="w-1/4 flex justify-center items-center p-6 bg-yellow-500 border-white border-4 rounded-full relative top-[-50px]">
                   <i className="fa-solid fa-wand-magic-sparkles text-xl"></i>
                 </div>
@@ -205,7 +205,7 @@ const About = () => {
               </div>
             </div>
             <div className="bg-[#EAE9E8] mt-16 md:mt-0">
-              <div className="bg-blue-950 flex justify-center flex-col items-center p-2">
+              <div className="bg-black flex justify-center flex-col items-center p-2">
                 <div className="w-1/4 flex justify-center items-center p-6 bg-yellow-500 border-white border-4 rounded-full relative top-[-50px]">
                   <i className="fa-solid fa-wand-magic-sparkles text-xl"></i>
                 </div>
@@ -223,7 +223,7 @@ const About = () => {
               </div>
             </div>
             <div className="bg-[#EAE9E8] mt-16 md:mt-0">
-              <div className="bg-blue-950 flex justify-center flex-col items-center p-2">
+              <div className="bg-black flex justify-center flex-col items-center p-2">
                 <div className="w-1/4 flex justify-center items-center p-6 bg-yellow-500 border-white border-4 rounded-full relative top-[-50px]">
                   <i className="fa-solid fa-wand-magic-sparkles text-xl"></i>
                 </div>

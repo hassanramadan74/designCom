@@ -5,8 +5,8 @@ const Contact = () => {
       <div className="flex flex-col justify-center ">
         <div className="p-12">
           <div className="space-y-5 mb-8">
-            <h1 className="font-extrabold font-serif text-4xl">Let's Talk</h1>
-            <p className="text-black font-medium">Have some big idea or brand to develop and need <br /> help? Then reach out we'd love to hear about your <br /> project and provide help</p>
+            <h1 className="font-extrabold font-serif text-4xl">Let&apos;s Talk</h1>
+            <p className="text-black font-medium">Have some big idea or brand to develop and need <br /> help? Then reach out we&apos;d love to hear about your <br /> project and provide help</p>
           </div>
           <div className="space-y-5 mb-8">
             <h1 className="font-extrabold font-serif text-2xl">Email</h1>
