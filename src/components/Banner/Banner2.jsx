@@ -1,4 +1,4 @@
-import Banner1 from "../../assets/banner2.png";
+import Banner1 from "../../assets/Photo-3.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 
@@ -13,9 +13,9 @@ const Banner2 = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView="animate"
-              className="text-4xl font-bold font-serif"
+              className="text-4xl font-bold font-serif text-[#930000]"
             >
-              Simple way to make stylish living room
+              Simple way to make stylish Product
             </motion.h1>
             <motion.p
               variants={SlideUp(0.4)}
@@ -23,9 +23,10 @@ const Banner2 = () => {
               whileInView="animate"
               className="text-gray-500 text-sm leading-7"
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              earum accusantium tempore nam adipisicing elit. Suscipit earum
-              accusantium tempore nam aliquid{" "}
+              Creating a stylish product starts with understanding your audience
+              and their needs. By blending innovative design with quality
+              materials and user-friendly features, we craft products that not
+              only look good but also perform exceptionally well.
             </motion.p>
             <motion.div
               variants={SlideUp(0.6)}
@@ -34,15 +35,21 @@ const Banner2 = () => {
               className="flex gap-3"
             >
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">15</p>
-                <p className="text-gray-500 text-sm">Years of Experience</p>
+                <p className="text-3xl font-bold font-serif text-[#930000]">
+                  15
+                </p>
+                <p className="text-gray-500 text-sm ">Years of Experience</p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">350</p>
+                <p className="text-3xl font-bold font-serif text-[#930000]">
+                  350
+                </p>
                 <p className="text-gray-500 text-sm">Happy Clients</p>
               </div>
               <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif">34</p>
+                <p className="text-3xl font-bold font-serif text-[#930000]">
+                  34
+                </p>
                 <p className="text-gray-500 text-sm">Award Gained</p>
               </div>
             </motion.div>

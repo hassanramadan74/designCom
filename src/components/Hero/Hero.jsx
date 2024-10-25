@@ -1,4 +1,4 @@
-import HeroPng from "../../assets/hero.png";
+import HeroPng from "../../assets/Photo-1.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 
@@ -13,9 +13,9 @@ const Hero = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-4xl font-bold font-serif"
+              className="text-4xl font-bold font-serif text-[#930000]"
             >
-              SKETCH LUXURY INTERIOR DESIGN
+           Innovative Digital Media Solutions
             </motion.h1>
             <motion.p
               variants={SlideUp(0.5)}

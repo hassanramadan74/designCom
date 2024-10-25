@@ -1,4 +1,4 @@
-import Banner1 from "../../assets/banner.png";
+import Banner1 from "../../assets/Photo-2.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 
@@ -24,7 +24,7 @@ const Banner = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView="animate"
-              className="text-4xl font-bold font-serif"
+              className="text-4xl font-bold font-serif text-[#930000]"
             >
               We Believe that a team makes any project better
             </motion.h1>
@@ -34,8 +34,10 @@ const Banner = () => {
               whileInView="animate"
               className="text-gray-500 text-sm leading-7"
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              earum accusantium tempore nam aliquid{" "}
+              Collaboration is the key to success. Our dedicated team works
+              closely with clients, ensuring that every project is enriched with
+              diverse perspectives and collective expertise, resulting in
+              outstanding outcomes.
             </motion.p>
             <div>
               <motion.button

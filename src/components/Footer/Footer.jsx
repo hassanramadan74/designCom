@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/designcom-logo.png";
 import { FaPhone } from "react-icons/fa6";
 import { LuMessageSquare } from "react-icons/lu";
 import { motion } from "framer-motion";
@@ -11,33 +11,32 @@ const Footer = () => {
       initial="initial"
       whileInView="animate"
     >
-      <div className="container py-11">
+      <div className="container py-11 ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company info section */}
           <div className="space-y-4 font-semibold">
             <div className="flex items-center space-x-3">
-              <img src={Logo} alt="" className="w-6" />
-              <p className="text-xl font-semibold">Interior</p>
+              <img src={Logo} alt="" className="w-24" />
             </div>
-            <p>Greater Noida, Uttar Pradesh, India</p>
-            <p>@ 2024 TCJ All rights reserved</p>
+            <p className="hover:text-[#930000] transition-all duration-300">Greater Noida, Uttar Pradesh, India</p>
+            <p className="hover:text-[#930000] transition-all duration-300">@ 2024 TCJ All rights reserved</p>
           </div>
           {/* Footer Link */}
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-4">
-              <h1 className="text-xl font-semibold">About us</h1>
+              <h1 className="text-xl font-semibold ">About us</h1>
               <ul className="text-sm space-y-4">
                 <li>
-                  <a href="#">Our Story</a>
+                  <a href="# " className="hover:text-[#930000] transition-all duration-300">Our Story</a>
                 </li>
                 <li>
-                  <a href="#">Designer</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Designer</a>
                 </li>
                 <li>
-                  <a href="#">Craftmanship</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Craftmanship</a>
                 </li>
                 <li>
-                  <a href="#">Sustainability</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Sustainability</a>
                 </li>
               </ul>
             </div>
@@ -45,16 +44,16 @@ const Footer = () => {
               <h1 className="text-xl font-semibold">Support</h1>
               <ul className="text-sm space-y-4">
                 <li>
-                  <a href="#">FAQ's</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">FAQ&apos;s</a>
                 </li>
                 <li>
-                  <a href="#">Shipping & Returns</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Shipping & Returns</a>
                 </li>
                 <li>
-                  <a href="#">Care Guide</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Care Guide</a>
                 </li>
                 <li>
-                  <a href="#">Guaranty</a>
+                  <a href="#" className="hover:text-[#930000] transition-all duration-300">Guaranty</a>
                 </li>
               </ul>
             </div>
@@ -65,18 +64,18 @@ const Footer = () => {
             <ul className="text-base font-semibold space-y-4">
               <li className="flex items-center space-x-3">
                 <FaPhone />
-                <a href="#">+91 123456789</a>
+                <a href="#" className="hover:text-[#930000] transition-all duration-300">+91 123456789</a>
               </li>
               <li className="flex items-center space-x-3">
                 <LuMessageSquare />
-                <a href="mailto:contact.thecodingjourney@gmail.com">Email</a>
+                <a href="mailto:contact.thecodingjourney@gmail.com" className="hover:text-[#930000] transition-all duration-300">Email</a>
               </li>
             </ul>
           </div>
         </div>
 
         {/* bottom section */}
-        <p className="text-center text-sm font-semibold  border-t-2 pt-5 mt-5">
+        <p className="text-center text-sm font-semibold  border-t-2 pt-5 mt-5 hover:text-[#930000] transition-all duration-300">
           &copy; 2024 designCom All rights reserved
         </p>
       </div>

@@ -10,7 +10,7 @@ const ServiceCard = [
     id: 1,
     title: "Luxury Facilities",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur",
+      "Experience the finest in comfort and elegance with our premium facilities, designed to offer unparalleled luxury.",
     icon: <FaVectorSquare />,
     link: "#",
     delay: 0.2,
@@ -19,7 +19,7 @@ const ServiceCard = [
     id: 2,
     title: "Quality Products",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur",
+      "We provide top-tier products crafted with precision and care, ensuring the highest quality standards.",
     icon: <FaPenToSquare />,
     link: "#",
     delay: 0.4,
@@ -28,12 +28,13 @@ const ServiceCard = [
     id: 3,
     title: "Affordable Price",
     description:
-      "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+      "Enjoy exceptional services and products at competitive prices without compromising on quality.",
     icon: <BiSolidDollarCircle />,
     link: "#",
     delay: 0.6,
   },
 ];
+
 const Services = () => {
   return (
     <div>
@@ -44,7 +45,7 @@ const Services = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-3xl font-bold font-serif"
+            className="text-3xl font-bold font-serif text-[#930000]"
           >
             What we provide
           </motion.h1>
@@ -67,12 +68,12 @@ const Services = () => {
                 initial="initial"
                 whileInView={"animate"}
                 key={card.id}
-                className="space-y-4 border-[1px] border-black/30 px-6 py-12 hover:bg-black hover:text-white hover:shadow-[7px_7px_0px_0px_#6c6c6c] duration-300"
+                className="space-y-4 border-[1px] border-black/30 px-6 py-12 hover:bg-[#930000] hover:text-white hover:shadow-[7px_7px_0px_0px_#6c6c6c] duration-300"
               >
                 <span className="inline-block text-xl border-[1px] border-black rounded-full p-3">
                   {card.icon}
                 </span>
-                <p className="text-2xl font-bold font-serif">{card.title}</p>
+                <p className="text-2xl font-bold font-serif ">{card.title}</p>
                 <p className="text-gray-400 text-xs">{card.description}</p>
                 <Link
                   href={card.link}

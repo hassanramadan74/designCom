@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/designcom-logo.png";
+
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -82,7 +83,7 @@ const Navbar = () => {
         <div className="block md:hidden mb-4">
           <div className="text-center mt-4">
             <button
-              className="text-white bg-black font-medium rounded-lg text-sm px-5 py-2.5 "
+              className="text-white bg-[#930000] font-medium rounded-lg text-sm px-5 py-2.5 "
               type="button"
               onClick={toggleDrawer} // Call toggleDrawer on click
             >
@@ -94,8 +95,7 @@ const Navbar = () => {
         {/* Logo section */}
         <Link to={"/"}>
           <div className="flex items-center gap-3">
-            <img src={Logo} alt="logo" className="w-10" />
-            <span className="text-2xl font-bold">DesignCom</span>
+            <img src={Logo} alt="logo" className="w-40" />
           </div>
         </Link>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
               <Link
                 to={link.link}
                 key={link.id}
-                className="inline-block mx-4 text-lg font-semibold"
+                className="inline-block mx-4 text-lg font-semibold hover:text-[#930000] transition-all duration-300"
               >
                 {t(link.title)}
               </Link>
@@ -117,7 +117,7 @@ const Navbar = () => {
           <div className="relative inline-block text-left">
             <button
               onClick={toggleDropdown}
-              className="inline-block mx-4 text-lg font-semibold focus:outline-none"
+              className="inline-block mx-4 text-lg font-semibold focus:outline-none hover:text-[#930000] transition-all duration-300"
             >
               <i className="fas fa-language mx-1"></i>
               {t("language")}
@@ -154,7 +154,7 @@ const Navbar = () => {
           id="drawer-navigation"
           className={`fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform ${
             drawerOpen ? "translate-x-0 " : "-translate-x-full"
-          } bg-white dark:bg-gray-800`}
+          } bg-white dark:bg-[#930000]`}
           tabIndex="-1"
           aria-labelledby="drawer-navigation-label"
         >
@@ -197,6 +197,34 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+                        <div className="relative inline-block text-left">
+            <button
+              onClick={toggleDropdown}
+              className="inline-block mx-4 text-lg font-semibold focus:outline-none hover:text-[#930000] transition-all duration-300"
+            >
+              <i className="fas fa-language mx-1"></i>
+              {t("language")}
+            </button>
+
+            {isOpen && (
+              <div className="absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <div className="py-1">
+                  <button
+                    onClick={() => changeLanguage("en")}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {t("english")}
+                  </button>
+                  <button
+                    onClick={() => changeLanguage("ar")}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {t("arabic")}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
             </ul>
           </div>
         </div>
