@@ -1,40 +1,42 @@
+import { useTranslation } from "react-i18next"; // Import useTranslation
+
 const Service = () => {
+  const { i18n } = useTranslation(); // Initialize the translation hook
+  const isArabic = i18n.language === "ar"; // Check if the current language is Arabic
+
   return (
     <>
-      <div className="bg-[url('./assets/about-without-text.png')] bg-cover bg-center min-h-[70vh] w-full flex items-center">
+      <div className="bg-[url('./assets/about-without-text.png')] bg-cover bg-center min-h-[70vh] w-full flex items-center" dir="ltr">
         <div className="container mx-auto px-4 py-12 md:py-24">
           <div className="max-w-xl">
-            <h1 className="text-[#930000] font-sans text-2xl md:text-3xl lg:text-4xl tracking-wider leading-normal font-bold mb-4 md:mb-6">
-              WE&apos;LL TAKE YOUR <br className="hidden md:inline" /> BUSINESS
-              TO THE <br className="hidden md:inline" /> NEXT LEVEL
+            <h1 className="text-[#930000] font-sans text-2xl md:text-3xl lg:text-4xl tracking-wider leading-normal font-bold mb-4 md:mb-6" dir={isArabic ? "rtl" : "ltr"}>
+              {isArabic
+                ? "نأخذ عملك إلى المستوى التالي"
+                : "WE'LL TAKE YOUR BUSINESS TO THE NEXT LEVEL"}
             </h1>
-            <p className="text-[#930000] font-sans text-sm md:text-base">
-              Media management ensures seamless coordination across platforms.{" "}
-              <br className="hidden md:inline" /> From organizing assets to
-              tracking performance, it maximizes efficiency for digital content
-              delivery.
+            <p className="text-[#930000] font-sans text-sm md:text-base" dir={isArabic ? "rtl" : "ltr"}>
+              {isArabic
+                ? "يضمن إدارة الوسائط تنسيقًا سلسًا عبر المنصات. من تنظيم الأصول إلى تتبع الأداء، يزيد من الكفاءة في تسليم المحتوى الرقمي."
+                : "Media management ensures seamless coordination across platforms. From organizing assets to tracking performance, it maximizes efficiency for digital content delivery."}
             </p>
           </div>
         </div>
       </div>
       <div>
         <div className="flex flex-col lg:flex-row">
-          <div className="bg-[#930000] text-lime-50 w-full lg:w-[70%] min-h-[28rem] p-6 sm:py-8 sm:px-8 md:py-6 md:px-12  flex flex-col justify-center items-center ">
+          <div className="bg-[#930000] text-lime-50 w-full lg:w-[70%] min-h-[28rem] p-6 sm:py-8 sm:px-8 md:py-6 md:px-12 flex flex-col justify-center items-center">
             <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full">
               <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-wider mb-4 text-center sm:text-left">
-                OUR SERVICES
+                {isArabic ? "خدماتنا" : "OUR SERVICES"}
               </h2>
               <p className="text-sm sm:text-base leading-normal mb-8 text-center sm:text-left">
-                Media management involves overseeing the creation, storage, and
-                distribution of digital assets. Effective media management is
-                key for optimizing workflows, enhancing collaboration, and
-                ensuring that content is accessible to the right people at the
-                right time. From curating marketing campaigns to organizing vast
-                content libraries, media managers streamline operations.
+                {isArabic
+                  ? "تشمل إدارة الوسائط الإشراف على إنشاء وتخزين وتوزيع الأصول الرقمية. الإدارة الفعالة للوسائط هي مفتاح لتحسين سير العمل، وتعزيز التعاون، وضمان أن المحتوى متاح للأشخاص المناسبين في الوقت المناسب. من تنسيق الحملات التسويقية إلى تنظيم مكتبات المحتوى الكبيرة، يعمل مدراء الوسائط على تبسيط العمليات."
+                  : "Media management involves overseeing the creation, storage, and distribution of digital assets. Effective media management is key for optimizing workflows, enhancing collaboration, and ensuring that content is accessible to the right people at the right time. From curating marketing campaigns to organizing vast content libraries, media managers streamline operations."}
               </p>
               <div className="flex justify-center sm:justify-start">
-                <button className="bg-[#fff] text-black py-2 px-6 sm:px-8 md:px-10 text-sm sm:text-base  transition-colors duration-300">
-                  Get Started
+                <button className="bg-[#fff] text-black py-2 px-6 sm:px-8 md:px-10 text-sm sm:text-base transition-colors duration-300">
+                  {isArabic ? "ابدأ الآن" : "Get Started"}
                 </button>
               </div>
             </div>
@@ -44,62 +46,67 @@ const Service = () => {
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-bullhorn mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  MEDIA PLANNING
+                  {isArabic ? "التخطيط الإعلامي" : "MEDIA PLANNING"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Developing a strategy to ensure your content reaches the right
-                  audience, at the right time, across various platforms.
+                  {isArabic
+                    ? "تطوير استراتيجية لضمان وصول محتواك إلى الجمهور المناسب، في الوقت المناسب، عبر منصات متعددة."
+                    : "Developing a strategy to ensure your content reaches the right audience, at the right time, across various platforms."}
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-chart-line mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  PERFORMANCE ANALYSIS
+                  {isArabic ? "تحليل الأداء" : "PERFORMANCE ANALYSIS"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Monitoring and optimizing media campaigns to achieve maximum
-                  engagement and return on investment.
+                  {isArabic
+                    ? "مراقبة وتحسين الحملات الإعلامية لتحقيق أقصى قدر من التفاعل والعائد على الاستثمار."
+                    : "Monitoring and optimizing media campaigns to achieve maximum engagement and return on investment."}
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-users mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  AUDIENCE TARGETING
+                  {isArabic ? "استهداف الجمهور" : "AUDIENCE TARGETING"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Identifying and reaching the right audience segments to
-                  enhance engagement and brand visibility.
+                  {isArabic
+                    ? "تحديد والوصول إلى قطاعات الجمهور المناسبة لتعزيز التفاعل ورؤية العلامة التجارية."
+                    : "Identifying and reaching the right audience segments to enhance engagement and brand visibility."}
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-lightbulb mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  CONTENT CREATION
+                  {isArabic ? "إنشاء المحتوى" : "CONTENT CREATION"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Crafting tailored content that resonates with your audience
-                  and aligns with your brand's goals and voice.
+                  {isArabic
+                    ? "صياغة محتوى مخصص يتناغم مع جمهورك ويتماشى مع أهداف صوت علامتك التجارية."
+                    : "Crafting tailored content that resonates with your audience and aligns with your brand's goals and voice."}
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-share-alt mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  DISTRIBUTION STRATEGY
+                  {isArabic ? "استراتيجية التوزيع" : "DISTRIBUTION STRATEGY"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Implementing a cross-channel distribution plan to maximize the
-                  reach and impact of your content.
+                  {isArabic
+                    ? "تنفيذ خطة توزيع عبر القنوات لتحقيق أقصى قدر من الوصول والتأثير لمحتواك."
+                    : "Implementing a cross-channel distribution plan to maximize the reach and impact of your content."}
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center py-4 px-8">
                 <i className="fa-solid fa-cogs mb-4 text-center text-3xl text-[#930000]"></i>
                 <h2 className="text-black font-sans text-center font-bold">
-                  TECHNICAL INTEGRATION
+                  {isArabic ? "الاندماج التقني" : "TECHNICAL INTEGRATION"}
                 </h2>
                 <p className="text-gray-500 text-center">
-                  Ensuring all technical aspects, such as tracking and
-                  analytics, are seamlessly integrated for accurate data
-                  insights.
+                  {isArabic
+                    ? "ضمان دمج جميع الجوانب الفنية، مثل التتبع والتحليلات، للحصول على رؤى دقيقة للبيانات."
+                    : "Ensuring all technical aspects, such as tracking and analytics, are seamlessly integrated for accurate data insights."}
                 </p>
               </div>
             </div>
@@ -111,53 +118,51 @@ const Service = () => {
         <div className="absolute inset-0 bg-black opacity-80"></div>
         <div className="pt-24 container relative z-10">
           <h2 className="text-lime-50 text-3xl tracking-widest text-center mb-16">
-            {" "}
-            TRADEMARK PROCESS
+            {isArabic ? "عملية العلامة التجارية" : "TRADEMARK PROCESS"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-0 mx-auto">
             <div className="bg-[#E6E7E9] px-10 py-14 text-center" id="firstDev">
               <i className="fa-solid fa-gift mb-8 text-center text-4xl text-[#930000]"></i>
               <h2 className="text-black font-sans text-center font-bold mb-4">
-                EXECUTION & <br /> ANALYSIS
+                {isArabic ? "التنقيب" : "RESEARCH"}
               </h2>
-              <p className="text-gray-500 text-center">
-                From implementing media strategies to analyzing their
-                effectiveness, we ensure seamless execution while continuously
-                assessing performance metrics to refine the approach for optimal
-                results.
+              <p className="text-gray-600 text-center">
+                {isArabic
+                  ? "إجراء أبحاث شاملة لفهم متطلبات مشروعك وأهدافه."
+                  : "Conducting thorough research to understand your project requirements and goals."}
               </p>
             </div>
-            <div className="bg-[#25323E] px-10 py-12 text-center" id="firstDev">
-              <i className="fa-brands fa-apple mb-8 text-center text-4xl text-[#930000]"></i>
-              <h2 className="text-white font-sans text-center font-bold mb-4">
-                MAPPING & <br /> PLANNING
+            <div className="bg-[#E6E7E9] px-10 py-14 text-center" id="secondDev">
+              <i className="fa-solid fa-pencil-alt mb-8 text-center text-4xl text-[#930000]"></i>
+              <h2 className="text-black font-sans text-center font-bold mb-4">
+                {isArabic ? "التصميم" : "DESIGN"}
               </h2>
-              <p className="text-white text-center">
-                We develop comprehensive media plans, mapping out the best
-                strategies and platforms to ensure that your message reaches the
-                right audience at the right time.
+              <p className="text-gray-600 text-center">
+                {isArabic
+                  ? "إنشاء تصميمات مبدئية تعكس هوية العلامة التجارية."
+                  : "Creating initial designs that reflect the brand identity."}
               </p>
             </div>
-            <div className="bg-[#76A5A6] px-10 py-12 text-center" id="firstDev">
-              <i className="fa-solid fa-bomb mb-8 text-center text-4xl text-[#930000]"></i>
-              <h2 className="text-white font-sans text-center font-bold mb-4">
-                MARKET <br /> RESEARCH
+            <div className="bg-[#E6E7E9] px-10 py-14 text-center" id="thirdDev">
+              <i className="fa-solid fa-cogs mb-8 text-center text-4xl text-[#930000]"></i>
+              <h2 className="text-black font-sans text-center font-bold mb-4">
+                {isArabic ? "التطوير" : "DEVELOPMENT"}
               </h2>
-              <p className="text-white text-center">
-                In-depth research is the foundation of successful campaigns. We
-                analyze market trends, audience behavior, and competitors to
-                guide your media management strategy.
+              <p className="text-gray-600 text-center">
+                {isArabic
+                  ? "بناء الحلول المطلوبة وفقًا للمواصفات المعتمدة."
+                  : "Building the required solutions according to approved specifications."}
               </p>
             </div>
-            <div className="bg-black px-10 py-12 text-center" id="firstDev">
-              <i className="fa-solid fa-face-smile mb-8 text-center text-4xl text-[#930000]"></i>
-              <h2 className="text-white font-sans text-center font-bold mb-4">
-                CREATIVE <br /> MARKETING
+            <div className="bg-[#E6E7E9] px-10 py-14 text-center" id="fourthDev">
+              <i className="fa-solid fa-check-circle mb-8 text-center text-4xl text-[#930000]"></i>
+              <h2 className="text-black font-sans text-center font-bold mb-4">
+                {isArabic ? "التسليم" : "DELIVERY"}
               </h2>
-              <p className="text-white text-center">
-                Innovative and compelling creative campaigns are our specialty.
-                We combine strategy with creativity to captivate your audience
-                and drive engagement.
+              <p className="text-gray-600 text-center">
+                {isArabic
+                  ? "تسليم المشروع النهائي مع ضمان رضا العميل."
+                  : "Delivering the final project while ensuring client satisfaction."}
               </p>
             </div>
           </div>

@@ -1,10 +1,29 @@
 {
+  "Home": "الرئيسية",
     "about": "حول",
     "services": "خدمات",
     "contact": "اتصل",
     "language": "لغة",
     "english": "إنجليزي",
     "arabic": "عربي",
-    "tryForFree": "جرب مجانا"
+    "tryForFree": "جرب مجانا",
+    
+      "abouta": {
+        "title": "We Are DesignCom",
+        "description": "DesignCom is a creative agency that brings ideas to life through innovative solutions, blending design and technology to deliver outstanding results.",
+        "enquire": "ENQUIRE",
+        "yearsOfExperience": "Years of Experience",
+        "happyClients": "Happy Clients",
+        "awardsGained": "Awards Gained",
+        "completedWebsites": "Completed Websites",
+        "ourProcess": "Our process",
+        "processDescription": "At DesignCom, we follow a strategic process that ensures every project is executed flawlessly, from concept to completion.",
+        "whatMakesUsDifferent": "What’s different when you work with us?",
+        "workingWithUs": "Working with DesignCom means receiving personalized solutions tailored to your unique business needs.",
+        "chooseUs": "Why choose us?",
+        "customSolutions": "Custom-tailored solutions for every client."
+      }
+    
+    
   }
   

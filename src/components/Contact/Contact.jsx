@@ -1,4 +1,9 @@
+import { useTranslation } from "react-i18next"; // Import useTranslation
+
 const Contact = () => {
+  const { i18n } = useTranslation(); // Initialize the translation hook
+  const isArabic = i18n.language === "ar"; // Check if the current language is Arabic
+
   return (
     <>
       <div className="container py-16">
@@ -7,27 +12,29 @@ const Contact = () => {
             <div className="p-12">
               <div className="space-y-5 mb-8">
                 <h1 className="font-extrabold font-serif text-4xl">
-                  Let&apos;s Talk
+                  {isArabic ? "دعنا نتحدث" : "Let's Talk"}
                 </h1>
                 <p className="text-black font-medium">
-                  Have some big idea or brand to develop and need <br /> help?
-                  Then reach out we&apos;d love to hear about your <br />{" "}
-                  project and provide help
+                  {isArabic
+                    ? "هل لديك فكرة كبيرة أو علامة تجارية لتطويرها وتحتاج إلى مساعدة؟ اتصل بنا، سنكون سعداء لسماع مشروعك وتقديم المساعدة."
+                    : "Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project and provide help."}
                 </p>
               </div>
               <div className="space-y-5 mb-8">
-                <h1 className="font-extrabold font-serif text-2xl">Email</h1>
-                <p className="text-black font-medium text-sm">
-                  beebs@gmail.com
-                </p>
+                <h1 className="font-extrabold font-serif text-2xl">
+                  {isArabic ? "البريد الإلكتروني" : "Email"}
+                </h1>
+                <p className="text-black font-medium text-sm">beebs@gmail.com</p>
               </div>
               <div className="space-y-5">
-                <h1 className="font-extrabold font-serif text-2xl">Socials</h1>
+                <h1 className="font-extrabold font-serif text-2xl">
+                  {isArabic ? "وسائل التواصل الاجتماعي" : "Socials"}
+                </h1>
                 <div className="text-black font-medium text-sm">
                   <ul className="space-y-2 underline">
-                    <li>Instagram</li>
-                    <li>Twitter</li>
-                    <li>Facebook</li>
+                    <li>{isArabic ? "إنستغرام" : "Instagram"}</li>
+                    <li>{isArabic ? "تويتر" : "Twitter"}</li>
+                    <li>{isArabic ? "فيسبوك" : "Facebook"}</li>
                   </ul>
                 </div>
               </div>
@@ -36,7 +43,7 @@ const Contact = () => {
           <div className="flex flex-col px-14">
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="name" className="text-black font-medium text-sm">
-                Name
+                {isArabic ? "الاسم" : "Name"}
               </label>
               <input
                 type="text"
@@ -46,7 +53,7 @@ const Contact = () => {
             </div>
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="email" className="text-black font-medium text-sm">
-                Email
+                {isArabic ? "البريد الإلكتروني" : "Email"}
               </label>
               <input
                 type="email"
@@ -56,7 +63,7 @@ const Contact = () => {
             </div>
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="phone" className="text-black font-medium text-sm">
-                Phone
+                {isArabic ? "الهاتف" : "Phone"}
               </label>
               <input
                 type="tel"
@@ -69,7 +76,7 @@ const Contact = () => {
                 htmlFor="country"
                 className="text-black font-medium text-sm"
               >
-                Country
+                {isArabic ? "الدولة" : "Country"}
               </label>
               <input
                 type="text"
@@ -82,11 +89,10 @@ const Contact = () => {
                 htmlFor="message"
                 className="text-black font-medium text-sm"
               >
-                Message
+                {isArabic ? "الرسالة" : "Message"}
               </label>
               <textarea
                 rows={6}
-                type="text"
                 id="message"
                 className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
               />
@@ -96,7 +102,7 @@ const Contact = () => {
                 type="submit"
                 className="bg-[#930000] hover:bg-black w-[90%] py-2 text-white"
               >
-                Submit
+                {isArabic ? "إرسال" : "Submit"}
               </button>
             </div>
           </div>
@@ -112,7 +118,7 @@ const Contact = () => {
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>{" "}
+        ></iframe>
       </div>
     </>
   );

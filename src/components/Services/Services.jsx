@@ -4,13 +4,17 @@ import { BiSolidDollarCircle } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animate";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ServiceCard = [
   {
     id: 1,
     title: "Luxury Facilities",
+    translatedTitle: "مرافق فاخرة",
     description:
       "Experience the finest in comfort and elegance with our premium facilities, designed to offer unparalleled luxury.",
+    translatedDescription:
+      "اختبر أرقى مستويات الراحة والأناقة مع مرافقنا الفاخرة المصممة لتقديم رفاهية لا مثيل لها.",
     icon: <FaVectorSquare />,
     link: "#",
     delay: 0.2,
@@ -18,8 +22,11 @@ const ServiceCard = [
   {
     id: 2,
     title: "Quality Products",
+    translatedTitle: "منتجات عالية الجودة",
     description:
       "We provide top-tier products crafted with precision and care, ensuring the highest quality standards.",
+    translatedDescription:
+      "نقدم منتجات عالية الجودة تم تصميمها بعناية ودقة، لضمان أعلى معايير الجودة.",
     icon: <FaPenToSquare />,
     link: "#",
     delay: 0.4,
@@ -27,8 +34,11 @@ const ServiceCard = [
   {
     id: 3,
     title: "Affordable Price",
+    translatedTitle: "أسعار مناسبة",
     description:
       "Enjoy exceptional services and products at competitive prices without compromising on quality.",
+    translatedDescription:
+      "استمتع بخدمات ومنتجات استثنائية بأسعار تنافسية دون المساومة على الجودة.",
     icon: <BiSolidDollarCircle />,
     link: "#",
     delay: 0.6,
@@ -36,10 +46,13 @@ const ServiceCard = [
 ];
 
 const Services = () => {
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === "ar"; // Check if the language is Arabic
+
   return (
-    <div>
+    <div dir={isArabic ? "rtl" : "ltr"}>
       <div className="container py-20">
-        {/* heading title */}
+        {/* Heading title */}
         <div className="space-y-2 text-center max-w-[350px] mx-auto mb-8">
           <motion.h1
             variants={SlideUp(0.2)}
@@ -47,7 +60,7 @@ const Services = () => {
             whileInView={"animate"}
             className="text-3xl font-bold font-serif text-[#930000]"
           >
-            What we provide
+            {isArabic ? "ماذا نقدم" : "What we provide"}
           </motion.h1>
           <motion.p
             variants={SlideUp(0.4)}
@@ -55,11 +68,12 @@ const Services = () => {
             whileInView={"animate"}
             className="text-gray-500 text-sm"
           >
-            Bring your dream home to life with one-on-one design help & hand
-            picked products
+            {isArabic
+              ? "حقق حلمك المنزلي بمساعدة فردية وتصاميم منتقاة بعناية."
+              : "Bring your dream home to life with one-on-one design help & hand-picked products"}
           </motion.p>
         </div>
-        {/* card section */}
+        {/* Card section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {ServiceCard.map((card) => {
             return (
@@ -73,13 +87,17 @@ const Services = () => {
                 <span className="inline-block text-xl border-[1px] border-black rounded-full p-3">
                   {card.icon}
                 </span>
-                <p className="text-2xl font-bold font-serif ">{card.title}</p>
-                <p className="text-gray-400 text-xs">{card.description}</p>
+                <p className="text-2xl font-bold font-serif">
+                  {isArabic ? card.translatedTitle : card.title}
+                </p>
+                <p className="text-gray-400 text-xs">
+                  {isArabic ? card.translatedDescription : card.description}
+                </p>
                 <Link
-                  href={card.link}
+                  to={card.link}
                   className="inline-block border-b border-black"
                 >
-                  Learn More
+                  {isArabic ? "اعرف المزيد" : "Learn More"}
                 </Link>
               </motion.div>
             );
