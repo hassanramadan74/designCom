@@ -1,9 +1,57 @@
 import { useTranslation } from "react-i18next"; // Import useTranslation
-
+import { useFormik } from "formik";
+import * as Yup from "yup";
 const Contact = () => {
   const { i18n } = useTranslation(); // Initialize the translation hook
   const isArabic = i18n.language === "ar"; // Check if the current language is Arabic
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .min(
+        2,
+        isArabic
+          ? "يجب أن يكون الاسم مكون من حرفين على الأقل"
+          : "Name must be at least 2 characters"
+      )
+      .required(isArabic ? "الاسم مطلوب" : "Name is required"),
+    email: Yup.string()
+      .email(isArabic ? "بريد إلكتروني غير صالح" : "Invalid email address")
+      .required(isArabic ? "البريد الإلكتروني مطلوب" : "Email is required"),
+    phone: Yup.string()
+      .matches(
+        /^\d{10}$/,
+        isArabic
+          ? "يجب أن يحتوي الهاتف على 10 أرقام"
+          : "Phone must be 10 digits"
+      )
+      .required(isArabic ? "الهاتف مطلوب" : "Phone is required"),
+    country: Yup.string().required(
+      isArabic ? "الدولة مطلوبة" : "Country is required"
+    ),
+    message: Yup.string()
+      .min(
+        10,
+        isArabic
+          ? "يجب أن تكون الرسالة مكونة من 10 أحرف على الأقل"
+          : "Message must be at least 10 characters"
+      )
+      .required(isArabic ? "الرسالة مطلوبة" : "Message is required"),
+  });
 
+  // Initialize Formik
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      country: "",
+      message: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log("Form Data:", values);
+      alert(isArabic ? "تم إرسال النموذج!" : "Form submitted!");
+    },
+  });
   return (
     <>
       <div className="container py-16">
@@ -24,7 +72,9 @@ const Contact = () => {
                 <h1 className="font-extrabold font-serif text-2xl">
                   {isArabic ? "البريد الإلكتروني" : "Email"}
                 </h1>
-                <p className="text-black font-medium text-sm">beebs@gmail.com</p>
+                <p className="text-black font-medium text-sm">
+                  beebs@gmail.com
+                </p>
               </div>
               <div className="space-y-5">
                 <h1 className="font-extrabold font-serif text-2xl">
@@ -40,7 +90,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col px-14">
+          <form onSubmit={formik.handleSubmit} className="flex flex-col px-14">
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="name" className="text-black font-medium text-sm">
                 {isArabic ? "الاسم" : "Name"}
@@ -48,9 +98,19 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
-                className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
+                {...formik.getFieldProps("name")}
+                className={`border-none bg-[#f3f0ee] w-[90%] outline-none py-2 ${
+                  formik.touched.name && formik.errors.name
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+              {formik.touched.name && formik.errors.name && (
+                <div className="text-red-500 text-xs">{formik.errors.name}</div>
+              )}
             </div>
+
+            {/* Repeat similar structure for other fields */}
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="email" className="text-black font-medium text-sm">
                 {isArabic ? "البريد الإلكتروني" : "Email"}
@@ -58,9 +118,20 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
+                {...formik.getFieldProps("email")}
+                className={`border-none bg-[#f3f0ee] w-[90%] outline-none py-2 ${
+                  formik.touched.email && formik.errors.email
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+              {formik.touched.email && formik.errors.email && (
+                <div className="text-red-500 text-xs">
+                  {formik.errors.email}
+                </div>
+              )}
             </div>
+
             <div className="flex space-y-4 flex-col mb-6">
               <label htmlFor="phone" className="text-black font-medium text-sm">
                 {isArabic ? "الهاتف" : "Phone"}
@@ -68,9 +139,20 @@ const Contact = () => {
               <input
                 type="tel"
                 id="phone"
-                className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
+                {...formik.getFieldProps("phone")}
+                className={`border-none bg-[#f3f0ee] w-[90%] outline-none py-2 ${
+                  formik.touched.phone && formik.errors.phone
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+              {formik.touched.phone && formik.errors.phone && (
+                <div className="text-red-500 text-xs">
+                  {formik.errors.phone}
+                </div>
+              )}
             </div>
+
             <div className="flex space-y-4 flex-col mb-6">
               <label
                 htmlFor="country"
@@ -81,9 +163,20 @@ const Contact = () => {
               <input
                 type="text"
                 id="country"
-                className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
+                {...formik.getFieldProps("country")}
+                className={`border-none bg-[#f3f0ee] w-[90%] outline-none py-2 ${
+                  formik.touched.country && formik.errors.country
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+              {formik.touched.country && formik.errors.country && (
+                <div className="text-red-500 text-xs">
+                  {formik.errors.country}
+                </div>
+              )}
             </div>
+
             <div className="flex space-y-4 flex-col mb-6">
               <label
                 htmlFor="message"
@@ -94,9 +187,20 @@ const Contact = () => {
               <textarea
                 rows={6}
                 id="message"
-                className="border-none bg-[#f3f0ee] w-[90%] outline-none focus:border-none focus:outline-none py-2"
+                {...formik.getFieldProps("message")}
+                className={`border-none bg-[#f3f0ee] w-[90%] outline-none py-2 ${
+                  formik.touched.message && formik.errors.message
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+              {formik.touched.message && formik.errors.message && (
+                <div className="text-red-500 text-xs">
+                  {formik.errors.message}
+                </div>
+              )}
             </div>
+
             <div className="flex space-y-4 flex-col mb-6">
               <button
                 type="submit"
@@ -105,7 +209,7 @@ const Contact = () => {
                 {isArabic ? "إرسال" : "Submit"}
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
